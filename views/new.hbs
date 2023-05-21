@@ -1,0 +1,35 @@
+<div class="container">
+  <form action="/menus/new" method="POST">
+    <div class="mb-3 form-group">
+      <label for="name" class="form-label">name</label>
+      <input
+        class="form-control"
+        id="name"
+        type="text"
+        placeholder="請輸入餐廳名稱"
+        name="name"
+        required="required"
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="type" class="form-label">type</label>
+      <input
+        class="form-control"
+        id="type"
+        type="text"
+        placeholder="請輸入餐廳類別ex:正餐、消夜、點心、飲料、其他"
+        name="type"
+        pattern="^(正餐|點心|消夜|飲料|其他)$"
+        required="required"
+      />
+    </div>
+    <div style="display:flex;"><button
+        type="submit"
+        class="btn btn-info me-3"
+      >Create</button>
+      <a href="/"><button
+          type="button"
+          class="btn btn-info"
+        >home</button></a></div>
+  </form>
+</div>

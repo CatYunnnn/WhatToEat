@@ -1,0 +1,63 @@
+<div class="container" style="display:flex; justify-content:space-between;">
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      類別
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="/">全部</a></li>
+      <li><a class="dropdown-item" href="/meal">正餐</a></li>
+      <li><a class="dropdown-item" href="/night">消夜</a></li>
+      <li><a class="dropdown-item" href="/dessert">點心</a></li>
+      <li><a class="dropdown-item" href="/drinks">飲料</a></li>
+      <li><a class="dropdown-item" href="/others">其他</a></li>
+    </ul>
+  </div>
+  <div style="display:flex;"><a href="/menus/new"><button
+        type="button"
+        class="btn btn-info"
+      >新增好吃的</button></a><a href="/random"><button
+        type="button"
+        class="btn btn-info ms-3"
+      >抽抽看吃甚麼</button></a></div>
+
+  <h3>{{result}}</h3>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    {{#each menus}}
+      <ul class="list-group">
+        <li class="list-group-item mb-3">
+          <div
+            style="display:flex; align-items:center; justify-content:space-between;"
+          >
+            <div style="display:flex;align-items:center;">
+              <div class="me-3">{{this.name}}</div>
+              <div class="me-3">{{this.type}}</div>
+            </div>
+            <div style="display:flex;align-items:center;">
+              <form
+                action="./menus/{{this._id}}?_method=DELETE"
+                method="POST"
+                style="align-items:center;"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-danger mt-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="return confirm('確定要刪除嗎?')"
+                >Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+    {{/each}}
+  </div>
+</div>
